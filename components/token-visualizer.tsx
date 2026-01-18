@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ModelSelector, OPENAI_MODELS } from "@/components/model-selector";
+import { ModelSelector } from "@/components/model-selector";
 import { getTokenColor, getTokenBorderColor, getTokenTextColor } from "@/lib/utils";
 import { Copy, Trash2, Sparkles, Info, FileCode } from "lucide-react";
 import { toast } from "sonner";
@@ -47,7 +47,7 @@ export function TokenVisualizer() {
     if (tiktokenRef.current) {
       tiktokenRef.current.free();
     }
-    const enc = encoding_for_model(model);
+    const enc = encoding_for_model(model as any);
     tiktokenRef.current = enc;
     setEncodingName(enc.name || model);
     return enc;
