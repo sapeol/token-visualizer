@@ -4,7 +4,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {},
+  webpack(config, { isServer, dev }) {
+    config.experiments = {
+      asyncWebAssembly: true,
+      layers: true,
+    };
+    return config;
+  },
 };
 
 module.exports = nextConfig;
